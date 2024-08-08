@@ -12,8 +12,8 @@ endif
 
 SRC_DIR=./
 TEST_DIR=tests/
-TEST_FILES=$(shell find $(TEST_DIR) \( -name "*.cpp" \))
-SRC_FILES=$(shell find $(SRC_DIR) \( -name "*.cpp" \))
+TEST_FILES=$(shell find $(TEST_DIR) \( -name "*.cpp" -o -name "*.hpp" \))
+SRC_FILES=$(shell find $(SRC_DIR) \( -name "*.cpp" -o -name "*.tpp" -o -name "*.hpp" \))
 TEST_EXE=$(TEST_DIR)bin/tests.out
 
 all: tests
@@ -26,9 +26,9 @@ all: tests
 #
 # To run a specific TestSuite:
 #     make tests test_name=MyTestSuite
-$(TEST_EXE): $(SRC_FILES) $(TEST_FILES)
+$(TEST_EXE): $(TEST_FILES) $(SRC_FILES)
 	mkdir -p $(TEST_DIR)bin/
-	$(CXX) $(CXXFLAGS) $^ $(GTEST_FLAGS) -o $@
+	$(CXX) $(CXXFLAGS) $< $(GTEST_FLAGS) -o $@
 
 tests: $(TEST_EXE)
 	./$< $(if $(test_name),--gtest_filter=$(test_name)*)

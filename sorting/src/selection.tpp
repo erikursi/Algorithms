@@ -4,17 +4,18 @@
 // the array.
 // Repeat the process of finding the next smallest element and swapping it into
 // the correct position until the entire array is sorted.
+#include "sorting.hpp"
 
-#include "sorting.h"
-void selectionSort(std::vector<int> &nums) {
-  int n = nums.size();
+template <class FwdIt, class Compare = std::less<>>
+void selectionSort(FwdIt first, FwdIt last, Compare cmp) {
+  int n = last - first;
   for (int i = 0; i < n - 1; i++) {
     int min_i = i;
     for (int k = i + 1; k < n; k++) {
-      if (nums[k] < nums[min_i]) {
+      if (cmp(*(first + k), *(first + min_i))) {
         min_i = k;
       }
     }
-    std::swap(nums[i], nums[min_i]);
+    std::iter_swap(first + i, first + min_i);
   }
 }

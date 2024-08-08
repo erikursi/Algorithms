@@ -1,5 +1,3 @@
-// The algorithm traverses a list and compares adjacent values,
-// swapping them if they are not in the correct order.
 
 #include "sorting.hpp"
 template <class FwdIt, class Compare = std::less<>>

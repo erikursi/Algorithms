@@ -67,6 +67,16 @@ TEST_F(FullSorting, insertion_1) {
   EXPECT_EQ(v2_, v2_exp_);
 }
 
+TEST_F(FullSorting, merge_1) {
+  EXPECT_NE(v1_, v1_exp_);
+  mergeSort(v1_.begin(), v1_.end());
+  EXPECT_EQ(v1_, v1_exp_);
+
+  EXPECT_NE(v2_, v2_exp_);
+  mergeSort(v2_.begin(), v2_.end());
+  EXPECT_EQ(v2_, v2_exp_);
+}
+
 TEST_F(PartialSorting, selection_1) {
   EXPECT_NE(v1_, v1_exp_);
   selectionSort(v1_.begin() + shift1_, v1_.end());
@@ -94,5 +104,15 @@ TEST_F(PartialSorting, insertion_1) {
 
   EXPECT_NE(v2_, v2_exp_);
   insertionSort(v2_.begin() + shift2_, v2_.end());
+  EXPECT_EQ(v2_, v2_exp_);
+}
+
+TEST_F(PartialSorting, merge_1) {
+  EXPECT_NE(v1_, v1_exp_);
+  mergeSort(v1_.begin() + shift1_, v1_.end());
+  EXPECT_EQ(v1_, v1_exp_);
+
+  EXPECT_NE(v2_, v2_exp_);
+  mergeSort(v2_.begin() + shift2_, v2_.end());
   EXPECT_EQ(v2_, v2_exp_);
 }

@@ -11,9 +11,11 @@ template <class FwdIt, class Compare = std::less<>>
 void bubbleSort(FwdIt first, FwdIt last, Compare cmp = Compare{});
 template <class FwdIt, class Compare = std::less<>>
 void insertionSort(FwdIt first, FwdIt last, Compare cmp = Compare{});
-// template <class FwdIt, class Compare = std::less<>>
-// void mergeSort(FwdIt first, FwdIt last, Compare cmp = Compare{});
 
+template <class FwdIt, class Compare = std::less<>>
+void _merge(FwdIt first, FwdIt mid_it, FwdIt last, Compare cmp = Compare{});
+template <class FwdIt, class Compare = std::less<>>
+void mergeSort(FwdIt first, FwdIt last, Compare cmp = Compare{});
 template <class FwdIt>
 void printContainer(FwdIt first, FwdIt last);
 

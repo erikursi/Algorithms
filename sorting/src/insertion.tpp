@@ -1,6 +1,3 @@
-// In Insertion sort, you compare the key element with the previous elements. If
-// the previous elements are greater than the key element, then you move the
-// previous element to the next position.
 #include "sorting.hpp"
 template <class FwdIt, class Compare = std::less<>>
 void insertionSort(FwdIt first, FwdIt last, Compare cmp) {

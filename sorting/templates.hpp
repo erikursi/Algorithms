@@ -16,6 +16,11 @@ template void bubbleSort(std::vector<int>::iterator &first,
                          std::vector<int>::iterator &last, std::less<int>);
 template void insertionSort(std::vector<int>::iterator &first,
                             std::vector<int>::iterator &last, std::less<int>);
+template void mergeSort(std::vector<int>::iterator &first,
+                        std::vector<int>::iterator &last, std::less<int>);
+template void _merge(std::vector<int>::iterator &first,
+                     std::vector<int>::iterator &mid_it,
+                     std::vector<int>::iterator &last, std::less<int>);
 template void printContainer(std::vector<int>::iterator &first,
                              std::vector<int>::iterator &last);
 #endif  // TEMPLATES_HPP
